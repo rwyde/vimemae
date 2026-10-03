@@ -3,7 +3,7 @@
 A small [Vicinae](https://vicinae.com/) extension with two Wayland screenshot commands:
 
 - **Memeclip** selects a region and copies the screenshot to the clipboard.
-- **Memecap** selects a region, saves it under `~/pic`, and copies it to the clipboard.
+- **Memecap** selects a region, saves it in your XDG Pictures directory, and copies it to the clipboard. The directory is resolved with `xdg-user-dir PICTURES` (for example, `~/pic` on the author's systems).
 
 ## Requirements
 
