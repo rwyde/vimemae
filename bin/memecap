@@ -2,7 +2,7 @@
 set -euo pipefail
 
 NAME="${1:-$(date +%Y-%m-%d_%H-%M-%S)}"
-PICTURES_DIR="$HOME/pic"
+PICTURES_DIR="$(xdg-user-dir PICTURES)"
 
 if [[ "$NAME" == "." || "$NAME" == ".." || "$NAME" == */* ]]; then
   printf 'Invalid screenshot name: use a file name, not a path.\n' >&2

@@ -13,11 +13,12 @@ A small [Vicinae](https://vicinae.com/) extension with two Wayland screenshot co
 - `slurp`
 - `wl-clipboard`
 - `libnotify`
+- `xdg-user-dirs`
 
 On Arch Linux:
 
 ```bash
-sudo pacman -S grim slurp wl-clipboard libnotify nodejs npm
+sudo pacman -S grim slurp wl-clipboard libnotify nodejs npm xdg-user-dirs
 ```
 
 ## Install

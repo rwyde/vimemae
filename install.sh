@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-required_commands=(grim notify-send npm slurp wl-copy)
+required_commands=(grim notify-send npm slurp wl-copy xdg-user-dir)
 missing_commands=()
 
 for command in "${required_commands[@]}"; do
