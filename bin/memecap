@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+NAME="${1:-$(date +%Y-%m-%d_%H-%M-%S)}"
+PICTURES_DIR="$HOME/pic"
+
+if [[ "$NAME" == "." || "$NAME" == ".." || "$NAME" == */* ]]; then
+  printf 'Invalid screenshot name: use a file name, not a path.\n' >&2
+  exit 2
+fi
+
+OUTFILE="${PICTURES_DIR}/${NAME}.png"
+
+mkdir -p "$PICTURES_DIR"
+
+if ! (set -o noclobber; : > "$OUTFILE") 2>/dev/null; then
+  printf 'Screenshot already exists: %s\n' "$OUTFILE" >&2
+  exit 3
+fi
+
+capture_complete=false
+cleanup_incomplete_capture() {
+  status=$?
+  trap - EXIT
+  if [[ "$capture_complete" != true ]]; then
+    rm -f -- "$OUTFILE"
+  fi
+  exit "$status"
+}
+trap cleanup_incomplete_capture EXIT
+
+# Region select → capture
+slurp | grim -g - "$OUTFILE"
+capture_complete=true
+
+# Copy to clipboard
+wl-copy < "$OUTFILE"
+
+notify-send "Screenshot saved" "$OUTFILE"
+

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Region select → capture
+slurp | grim -g - - | wl-copy --type image/png
+
+notify-send "Screenshot copied to clipboard"
+

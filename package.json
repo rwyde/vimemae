@@ -1,0 +1,42 @@
+{
+	"$schema": "https://raw.githubusercontent.com/vicinaehq/vicinae/refs/heads/main/extra/schemas/extension.json",
+	"name": "vimemae",
+	"title": "Vimemae",
+	"description": "An extension for sensitive young men",
+	"categories": [],
+	"license": "MIT",
+	"author": "rwyde",
+	"contributors": [],
+	"pastContributors": [],
+	"icon": "extension_icon.png",
+	"commands": [
+		{
+			"name": "memecap",
+			"title": "Memecap",
+			"subtitle": "Capture memes",
+			"description": "It captures memes",
+			"mode": "view"
+		},
+		{
+			"name": "memeclip",
+			"title": "Memeclip",
+			"subtitle": "Capture memes to clipboard",
+			"description": "It captures memes to the clipboard",
+			"mode": "no-view"
+		}
+	],
+	"preferences": [],
+	"scripts": {
+		"build": "vici build",
+		"dev": "vici develop",
+		"format": "biome format --write src",
+		"lint": "vici lint"
+	},
+	"dependencies": {
+		"@vicinae/api": "^0.28.2"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.3.2",
+		"typescript": "^5.9.2"
+	}
+}
